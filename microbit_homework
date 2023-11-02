@@ -1,0 +1,43 @@
+from microbit import*
+from ssd1306 import initialize,clear_oled
+from ssd1306_text import add_text
+
+def light(value):
+      pin0.write_analog(1023-value)
+
+def aa(x):
+    if x>27:
+        pin8.write_digital(1)
+    if x<27:
+        pin8.write_digital(0)
+       
+        
+
+
+
+while True:
+    pir_sensor =pin2.read_digital()
+    x=temperature()
+    b = display.read_light_level()
+    initialize()
+    clear_oled()
+    add_text(1,1,str(temperature()))
+    add_text(2,2,str(display.read_light_level()))
+    sleep(1000)
+
+    if pir_sensor==1:
+        light(b)
+        aa(x)
+        
+
+        
+            
+
+        
+            
+            
+            
+      
+
+
+      
